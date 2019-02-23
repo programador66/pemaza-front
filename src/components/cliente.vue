@@ -1,19 +1,35 @@
 <template>
-<div>teste clientes</div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong>PMZ</strong>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarHeader"
+        aria-controls="navbarHeader"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'cliente',
-  data () {
+  name: "cliente",
+  data() {
     return {
-      msg: 'clientes'
-    }
+      msg: "clientes"
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

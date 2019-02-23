@@ -55,7 +55,7 @@
             <h3 class="jumbotron-heading">Sistema TI</h3>
           </div>
           <div class="col-sm-6 text-right position-relative pt-3">
-            <button class="btn btn-outline-dark">Novo cadastro</button>
+            <button class="btn btn-outline-dark" v-on:click="cadastrarCliente()">Novo cadastro</button>
           </div>
         </div>
       </div>
@@ -76,6 +76,11 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App"
     };
+  },
+  methods: {
+    cadastrarCliente() {
+      this.$router.push("/cliente");
+    }
   }
 };
 </script>
