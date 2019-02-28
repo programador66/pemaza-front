@@ -1,23 +1,15 @@
 <template>
   <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="./listaProdutos" class="navbar-brand d-flex align-items-center">
-          <strong>PMZ</strong>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarHeader"
-          aria-controls="navbarHeader"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
+    <v-toolbar color="black">
+      <v-toolbar-side-icon color="white"></v-toolbar-side-icon>
+      <v-toolbar-title id="pmz">PMZ</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn flat color="white">Produtos</v-btn>
+        <v-btn flat color="white">Categorias</v-btn>
+        <v-btn flat color="white">Sair</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
 
     <section class="jumbotron pb-1">
       <div class="container">
@@ -32,7 +24,6 @@
         </div>
       </div>
     </section>
-    <listaProdutos/>
   </header>
 </template>
 
@@ -62,4 +53,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#pmz {
+  color: white;
+}
 </style>

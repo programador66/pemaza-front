@@ -1,22 +1,7 @@
 <template>
   <div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="./listaProdutos" class="navbar-brand d-flex align-items-center">
-          <strong>PMZ</strong>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarHeader"
-          aria-controls="navbarHeader"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
+    <div>
+      <navBar/>
     </div>
 
     <div class="container" style="margin-top:2%;">
@@ -52,19 +37,19 @@
     </div>
 
     <div>
-    <b-alert v-model="alert" dismissible fade variant="danger" class="m-1">Erro ao Cadastrar</b-alert>
+      <b-alert v-model="alert" dismissible fade variant="danger" class="m-1">Erro ao Cadastrar</b-alert>
     </div>
-</div>
-
-
-
   </div>
 </template>
 
 <script>
 import listaProdutos from "./listaProdutos";
+import navBar from "./navBar";
 export default {
   name: "cliente",
+  components: {
+    navBar
+  },
   data() {
     return {
       msg: "clientes",
@@ -75,8 +60,7 @@ export default {
       cat: [],
       modalShow: false,
       modalErro: false,
-      alert:false
-      
+      alert: false
     };
   },
 
@@ -85,9 +69,13 @@ export default {
   },
   methods: {
     read() {
-      if (this.produto == null || this.estoque == null || this.preco == null || this.cat == null) {
+      if (
+        this.produto == null ||
+        this.estoque == null ||
+        this.preco == null ||
+        this.cat == null
+      ) {
         this.alert = true;
-      
       }
       this.axios
         .post("http://127.0.0.1:8000/api/produtos", {
@@ -103,9 +91,9 @@ export default {
             console.log("ok");
             this.modalShow = true;
             this.produto = null;
-            this.estoque =  null;
-            this.preco =  null;
-            this.cat =  null;
+            this.estoque = null;
+            this.preco = null;
+            this.cat = null;
           } else {
             console.log("erro");
             this.modalErro = true;
