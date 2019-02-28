@@ -7,6 +7,9 @@
           <td class="text-xs-center">{{ props.item.nome }}</td>
           <td class="text-xs-center">{{ props.item.estoque }}</td>
           <td class="text-xs-center">{{ props.item.preco }}</td>
+          <td>
+            <button class="text-xs-center btn btn-outline-dark">Excluir</button>
+          </td>
         </template>
       </v-data-table>
     </div>
@@ -24,7 +27,8 @@ export default {
         { text: "ID", value: "id", align: "center" },
         { text: "nome", value: "nome", align: "center" },
         { text: "Estoque", value: "estoque", align: "center" },
-        { text: "Preco", value: "preco", align: "center" }
+        { text: "Preco", value: "preco", align: "center" },
+        { text: "Ações", value: "", align: "center" }
       ],
       tabelas: []
     };
