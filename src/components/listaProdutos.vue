@@ -15,12 +15,8 @@
 
 
 <script>
-import navBar from "./navBar";
 export default {
   name: "listaProdutos",
-  components: {
-    navBar
-  },
 
   data() {
     return {

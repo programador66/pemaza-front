@@ -24,6 +24,7 @@
 
           <div class="mt-4"></div>
         </div>
+        <b-button v-on:click="voltarProdutos();">Voltar</b-button>
         <b-button v-on:click="read();">Cadastrar</b-button>
       </b-jumbotron>
     </div>
@@ -94,6 +95,7 @@ export default {
             this.estoque = null;
             this.preco = null;
             this.cat = null;
+            voltarProdutos();
           } else {
             console.log("erro");
             this.modalErro = true;
@@ -112,6 +114,9 @@ export default {
             };
           });
         });
+    },
+    voltarProdutos() {
+      this.$router.push("/");
     }
   }
 };
