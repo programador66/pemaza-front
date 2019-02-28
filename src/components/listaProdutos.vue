@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div>
-      <navBar/>
-    </div>
     <div id="tabProd">
       <v-data-table :headers="headers" :items="tabelas" class="elevation-1" item-key="id">
         <template slot="items" slot-scope="props">

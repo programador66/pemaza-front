@@ -1,28 +1,59 @@
 <template>
   <header>
-    <v-toolbar color="black">
-      <v-toolbar-side-icon color="white"></v-toolbar-side-icon>
+    <v-toolbar color="#343a40">
+      <v-toolbar-side-icon clipped-left="true" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title id="pmz">PMZ</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat color="white">Produtos</v-btn>
+        <v-btn flat color="white" @click="listarProdutos()">Produtos</v-btn>
         <v-btn flat color="white">Categorias</v-btn>
         <v-btn flat color="white">Sair</v-btn>
+        <v-btn icon>
+          <v-icon color="white">more_vert</v-icon>
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
 
-    <section class="jumbotron pb-1">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <h5 class="text-muted">Bem vindo (a) ao</h5>
-            <h3 class="jumbotron-heading">Sistema TI</h3>
-          </div>
-          <div class="col-sm-6 text-right position-relative pt-3">
-            <button class="btn btn-outline-dark" v-on:click="cadastrarCliente()">Novo cadastro</button>
-          </div>
-        </div>
-      </div>
+    <section>
+      <v-navigation-drawer v-model="drawer" :mini-variant="mini" absolute dark temporary>
+        <v-list class="pa-1">
+          <v-list-tile v-if="mini" @click.stop="mini = !mini">
+            <v-list-tile-action>
+              <v-icon>chevron_right</v-icon>
+            </v-list-tile-action>
+          </v-list-tile>
+
+          <v-list-tile avatar tag="div">
+            <v-list-tile-avatar>
+              <img src="https://randomuser.me/api/portraits/men/85.jpg">
+            </v-list-tile-avatar>
+
+            <v-list-tile-content>
+              <v-list-tile-title>John Leider</v-list-tile-title>
+            </v-list-tile-content>
+
+            <v-list-tile-action>
+              <v-btn icon @click.stop="mini = !mini">
+                <v-icon>chevron_left</v-icon>
+              </v-btn>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list>
+
+        <v-list class="pt-0" dense>
+          <v-divider light></v-divider>
+
+          <v-list-tile v-for="item in items" :key="item.title" @click>
+            <v-list-tile-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-tile-action>
+
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-navigation-drawer>
     </section>
   </header>
 </template>
@@ -37,7 +68,13 @@ export default {
   },
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      drawer: null,
+      items: [
+        { title: "Home", icon: "dashboard" },
+        { title: "About", icon: "question_answer" }
+      ],
+      mini: false,
+      right: null
     };
   },
   methods: {

@@ -5,7 +5,7 @@ import BootstrapVue from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import cliente from "@/components/cliente";
-import HelloWolrd from "@/components/HelloWorld";
+import HelloWorld from "@/components/HelloWorld";
 
 Vue.use(BootstrapVue);
 Vue.use(Router);
@@ -15,7 +15,7 @@ export default new Router({
     {
       path: "/",
       name: "HelloWolrd",
-      component: HelloWolrd
+      component: HelloWorld
     },
     {
       path: "/cliente",
