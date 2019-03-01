@@ -12,3 +12,15 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
+
+cadastro/node_modules
+cadastro/public/hot
+cadastro/public/storage
+cadastro/storage/*.key
+cadastro/vendor
+cadastro/.env
+cadastro/.phpunit.result.cache
+cadastro/Homestead.json
+cadastro/Homestead.yaml
+cadastro/npm-debug.log
+cadastro/yarn-error.log
