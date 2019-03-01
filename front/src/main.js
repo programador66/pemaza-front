@@ -7,6 +7,7 @@ import router from "./router";
 import axios from "axios";
 import Vuetify from "vuetify";
 import navBar from "./components/navBar";
+import cliente from "./components/cliente";
 
 Vue.use(Vuetify);
 
@@ -18,6 +19,6 @@ Vue.config.productionTip = false;
 new Vue({
   el: "#app",
   router,
-  components: { App, navBar },
+  components: { App, navBar, cliente },
   template: "<App/>"
 });

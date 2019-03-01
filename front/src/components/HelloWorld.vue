@@ -12,7 +12,7 @@
               <h3 class="jumbotron-heading">Sistema TI</h3>
             </div>
             <div class="col-sm-6 text-right position-relative pt-3">
-              <button class="btn btn-outline-dark" v-on:click="cadastrarCliente()">Novo cadastro</button>
+              <button class="btn btn-outline-dark" @click="modalActive = true">Novo cadastro</button>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
     </div>
 
     <div>
-      <toolbarBottom/>
+      <cliente :modal="modalActive" @modalDialog="modalDialog"/>
     </div>
   </div>
 </template>
@@ -39,14 +39,23 @@ export default {
   components: {
     navBar,
     listaProdutos,
-    toolbarBottom
+    toolbarBottom,
+    cliente
   },
-  return() {
-    msg: "teste";
+  data() {
+    return {
+      msg: "teste",
+      modalActive: false
+    };
   },
+
   methods: {
     cadastrarCliente() {
       this.$router.push("/cliente");
+    },
+
+    modalDialog(value) {
+      this.modalActive = value;
     }
   }
 };
