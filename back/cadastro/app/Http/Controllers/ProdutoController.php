@@ -115,6 +115,6 @@ class ProdutoController extends Controller
     {
         $cat = Produto::find($id);
         $cat->delete();
-        return redirect('/produtos');
+        return \Response()->json("deletado", 200);
     }
 }

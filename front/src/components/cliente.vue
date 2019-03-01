@@ -12,15 +12,15 @@
           <div class="mt-4"></div>
         </div>
         <div>
-          <b-form-input v-model="preco" type="text" placeholder="preco"/>
+          <b-form-input v-model="preco" type="number" placeholder="preco"/>
           <div class="mt-4"></div>
         </div>
         <div>
-          <b-form-input v-model="estoque" type="text" placeholder="estoque"/>
+          <b-form-input v-model="estoque" type="number" placeholder="estoque"/>
           <div class="mt-4"></div>
         </div>
         <div>
-          <b-form-select v-model="cat" :options="options" type="text" placeholder="Categoria"/>
+          <b-form-select v-model="cat" :options="options" type="text" placeholder="selected"/>
 
           <div class="mt-4"></div>
         </div>
@@ -54,11 +54,11 @@ export default {
   data() {
     return {
       msg: "clientes",
-      options: [{ text: "nome", value: null }],
+      options: [{ text: "selecione", value: null }],
       produto: null,
       preco: null,
       estoque: null,
-      cat: [],
+      cat: null,
       modalShow: false,
       modalErro: false,
       alert: false
@@ -113,6 +113,7 @@ export default {
               value: c.id
             };
           });
+          this.options.unshift({ text: "selecione", value: null });
         });
     },
     voltarProdutos() {
