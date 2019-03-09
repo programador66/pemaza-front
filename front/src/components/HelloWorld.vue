@@ -19,11 +19,11 @@
       </section>
     </div>
     <div>
-      <listaProdutos/>
+      <listaProdutos :attprodutos="atualizaLista"/>
     </div>
 
     <div>
-      <cliente :modal="modalActive" @modalDialog="modalDialog"/>
+      <cliente :modal="modalActive" @modalDialog="modalDialog" @attprodutos="attprodutos"/>
     </div>
   </div>
 </template>
@@ -45,7 +45,8 @@ export default {
   data() {
     return {
       msg: "teste",
-      modalActive: false
+      modalActive: false,
+      atualizaLista: false
     };
   },
 
@@ -56,6 +57,9 @@ export default {
 
     modalDialog(value) {
       this.modalActive = value;
+    },
+    attprodutos(val) {
+      this.atualizaLista = val;
     }
   }
 };

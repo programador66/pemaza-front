@@ -24,6 +24,7 @@
 <script>
 export default {
   name: "listaProdutos",
+  props: ["attprodutos"],
 
   data() {
     return {
@@ -36,6 +37,14 @@ export default {
       ],
       tabelas: []
     };
+  },
+
+  watch: {
+    attprodutos(val) {
+      if (val) {
+        this.read();
+      }
+    }
   },
 
   mounted() {
