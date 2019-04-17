@@ -113,8 +113,15 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        $cat = Produto::find($id);
-        $cat->delete();
-        return \Response()->json("deletado", 200);
+        $prod = Produto::find($id);
+        $prod->delete();
+        if ($prod) {
+            $retorno = array("codigo" => 1, "msg" => "Deletado com sucesso!");
+            return \Response()->json($retorno);
+        } else {
+            $retorno = array("codigo" => 0, "msg" => "erro ao deletar!");
+            return \Response()->json($retorno);
+        }
+
     }
 }

@@ -14,7 +14,7 @@
                 </v-flex>
 
                 <v-flex xs12>
-                  <v-text-field v-model="preco" label="Preço*" :mask="mask" prefix="R$" required></v-text-field>
+                  <v-text-field v-model="preco" label="Preço*" prefix="R$" required></v-text-field>
                 </v-flex>
                 <v-flex xs12>
                   <v-text-field v-model="estoque" label="Estoque*" type="text" required></v-text-field>
